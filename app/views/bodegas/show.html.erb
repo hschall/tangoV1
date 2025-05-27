@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @bodega %>
+
+<div>
+  <%= link_to "Edit this bodega", edit_bodega_path(@bodega) %> |
+  <%= link_to "Back to bodegas", bodegas_path %>
+
+  <%= button_to "Destroy this bodega", @bodega, method: :delete %>
+</div>

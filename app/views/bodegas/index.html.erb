@@ -1,0 +1,36 @@
+<%= link_to "Nuevo Registro", new_bodega_path, class: "btn btn-primary", style: "background-color: #4f98bf; border: none; padding: 4px 10px; font-size: 0.85rem;" %>
+
+<div class="container-fluid mt-5">
+  <div class="table-responsive">
+    <table class="table table-striped table-hover align-middle text-center w-150" style="border-radius: 7px; overflow: hidden; font-size: 0.75rem;">
+      <thead>
+        <tr>
+          <th colspan="6" class="text-white text-start px-2.5 py-1 fw-normal" style="background-color: #1b5892; font-size: 0.95rem;">CEDIS</th>
+        </tr>
+        <tr>
+          <th>ID</th>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Código Postal</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bodegas.each do |bodega| %>
+          <tr>
+            <td><%= bodega.id %></td>
+            <td><%= bodega.codigo %></td>
+            <td><%= bodega.nombre %></td>
+            <td><%= bodega.direccion %></td>
+            <td><%= bodega.cp %></td>
+            <td class="d-flex justify-content-center gap-1">
+              <%= link_to "Editar", edit_bodega_path(bodega), class: "btn btn-outline-info btn-sm", style: "padding: 2px 6px; font-size: 0.75rem;" %>
+              <%= button_to "Eliminar", bodega, method: :delete, data: { confirm: "¿Seguro que deseas eliminar la bodega?" }, class: "btn btn-outline-danger btn-sm", style: "padding: 2px 6px; font-size: 0.75rem;" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

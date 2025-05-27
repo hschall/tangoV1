@@ -1,0 +1,68 @@
+<%= form_with(model: producto, class: "mt-3") do |form| %>
+  <% if producto.errors.any? %>
+    <div class="alert alert-danger">
+      <h6 style="font-size: 0.85rem;"><%= pluralize(producto.errors.count, "error") %> impidiendo guardar el producto:</h6>
+      <ul style="font-size: 0.75rem;">
+        <% producto.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="card shadow-sm p-3" style="border-radius: 0.6rem; font-size: 0.8rem;">
+    <h6 class="mb-3 text-primary" style="font-size: 0.9rem;">Formulario de Producto</h6>
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <%= form.label :sap_id, "SAP ID", class: "form-label" %>
+        <%= form.text_field :sap_id, class: "form-control form-control-sm" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :nombre, "Nombre", class: "form-label" %>
+        <%= form.text_field :nombre, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <%= form.label :um_compras, "UM Compras", class: "form-label" %>
+        <%= form.text_field :um_compras, class: "form-control form-control-sm" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :um_inventario, "UM Inventario", class: "form-label" %>
+        <%= form.text_field :um_inventario, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <%= form.label :um_ventas, "UM Ventas", class: "form-label" %>
+        <%= form.text_field :um_ventas, class: "form-control form-control-sm" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :codigo_barras, "Código de Barras", class: "form-label" %>
+        <%= form.text_field :codigo_barras, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <%= form.label :costo, "Costo", class: "form-label" %>
+        <%= form.number_field :costo, step: 0.01, class: "form-control form-control-sm" %>
+      </div>
+
+      <div class="col-md-6">
+        <%= form.label :precio_venta, "Precio de Venta", class: "form-label" %>
+        <%= form.number_field :precio_venta, step: 0.01, class: "form-control form-control-sm" %>
+      </div>
+    </div>
+
+    <div class="text-end mt-3">
+      <%= form.submit "Guardar", class: "btn btn-primary", style: "background-color: #4f98bf; border: none; font-size: 0.8rem; padding: 5px 12px;" %>
+    </div>
+  </div>
+<% end %>

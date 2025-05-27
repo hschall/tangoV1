@@ -1,0 +1,15 @@
+<h5 class="mb-4">Importar Sucursales desde Excel o CSV</h5>
+
+<%= form_with url: import_create_sucursales_path, method: :post, local: true, multipart: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :file, "Archivo (CSV o XLSX)", class: "form-label" %>
+    <%= form.file_field :file, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Subir e Importar", class: "btn btn-primary", style: "background-color: #4f98bf;" %>
+<% end %>
+
+<div class="mt-4">
+  <strong>Formato esperado:</strong>
+  <pre style="font-size: 0.75rem;">codigo,ruta,direccion,cp,activo,bodega_id</pre>
+</div>
